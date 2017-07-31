@@ -1,7 +1,7 @@
 version: '3'
 services:
     php:
-        build: liammartens/directus
+        image: liammartens/directus
         ports:
             - 127.0.0.1:9000:9000
         environment:
