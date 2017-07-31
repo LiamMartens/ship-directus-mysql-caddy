@@ -1,5 +1,5 @@
 localhost:3000 {
-    root /var/directus
+    root /var/www
     fastcgi / php:9000 php
 
     rewrite /api {
