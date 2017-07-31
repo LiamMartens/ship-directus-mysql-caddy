@@ -8,7 +8,7 @@ localhost:3000 {
     }
 
     rewrite /api {
-        to {path} api.php?run_api_router=1&{query} 
+        to {path} /api/api.php?run_api_router=1&{query} 
     }
 
     rewrite / {
