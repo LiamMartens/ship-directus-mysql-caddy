@@ -1,4 +1,20 @@
 localhost:3000 {
-    root /var/www
+    root /var/directus
     fastcgi / php:9000 php
+
+    rewrite /api {
+        regexp ^extensions/([^/]+)
+        to {path} /api/api.php?run_extension={1}&{query}
+    }
+
+    rewrite /api {
+        to {path} api.php?run_api_router=1&{query} 
+    }
+
+    rewrite / {
+        if {path} not_starts_with /assets
+        if {path} not_starts_with /extensions
+        if {path} not_starts_with /listviews
+        to {path} /index.php
+    }
 }
